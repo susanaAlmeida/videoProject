@@ -1,0 +1,26 @@
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" width="100%">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">LISTA DE VÍDEOS JASON!!!</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in basic.details">
+      <td class="mdl-data-table__cell--non-numeric">
+      <img srcset="http://img.youtube.com/vi/{{item.url}}/default.jpg">
+      <a ui-sref="basic-edit({id:item.id})">{{item.firstName}}</a>
+      </td>
+      <td>
+      <a ui-sref="editar-form({id:item.id})">editar</a>
+      </td>
+      <td>
+      <a ng-click="basic.deleteBasic(item.id)">delete</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a ui-sref="criar-form" href="">Create</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
