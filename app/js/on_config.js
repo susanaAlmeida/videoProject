@@ -18,25 +18,25 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     controllerAs: 'basic',
     title: 'Basic'
   })
-  .state('basic-edit',{
+  .state('single-video',{
     url: '/basic/:id',
-    templateUrl: 'basic-edit.html',
-    controller: 'basicEditController',
+    templateUrl: 'singleVideo.html',
+    controller: 'singleVideoController',
     controllerAs: 'basic',
     title: 'Basic'
   })
   .state('criar-form',{
     url: '/criar',
     templateUrl: 'criar.html',
-    controller: 'basicController',
-    controllerAs: 'basic',
+    controller: 'createVideoController',
+    controllerAs: 'basicCreate',
     title: 'Basic'
   })
     .state('editar-form',{
     url: '/editar/:id',
     templateUrl: 'editar.html',
-    controller: 'basicController',
-    controllerAs: 'basic',
+    controller: 'editVideoController',
+    controllerAs: 'basicEdit',
     title: 'Basic'
   })
 

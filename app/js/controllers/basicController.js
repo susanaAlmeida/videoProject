@@ -1,21 +1,30 @@
-function basicController(basicService, $window,$scope) {
+function basicController($window, $scope, videoService, $state) {
   'ngInject';
 
   // details = lista.data
 
   // COMO ESTOU A LER UM JSON TENHO DE POR ESTE CÓDIGO!!!
   let self = this;
-  self.deleteBasic = deleteBasic;
+  self.deleteSingleVideo = deleteSingleVideo;
   self.editBasic = editBasic;
   self.alteraBasic = alteraBasic;
   self.verificaFilme = verificaFilme;
   self.calculaId = calculaId;
   self.saveForm = saveForm;
+  self.listaVideos = listaVideos;
 
 
-  basicService.getAll().then(function(lista){
-  self.details = lista.data;
-  });
+  function listaVideos(){
+    videoService.getVideos().then(function(res){
+      self.videos = res.data;
+    })
+  }
+
+  function deleteSingleVideo(eid){
+    videoService.deleteSingleVideo(eid).then(function(res){
+      $state.go($state.current, {} , {reload:true});
+    })
+  }
 
   function verificaFilme(data) {
     console.log(data);
@@ -69,14 +78,6 @@ function basicController(basicService, $window,$scope) {
     }
   }
 
-  function deleteBasic(eid) {
-    for (var i = self.details.length - 1; i >= 0; i--) {
-      if (self.details[i].id == eid) {
-        self.details.splice(i, 1);
-      }
-    }
-    console.log(self.details);
-  }
 
   function saveForm(edata) {
     edata.id = self.details.length + 1;
@@ -93,7 +94,7 @@ function basicController(basicService, $window,$scope) {
   //   ;
   // }
 
-
+  listaVideos();
 
 }
 

@@ -5,16 +5,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="item in basic.details">
+    <tr ng-repeat="item in basic.videos">
       <td class="mdl-data-table__cell--non-numeric">
       <img srcset="http://img.youtube.com/vi/{{item.url}}/default.jpg">
-      <a ui-sref="basic-edit({id:item.id})">{{item.firstName}}</a>
+      <a ui-sref="single-video({id:item._id})">{{item.name}}</a>
       </td>
       <td>
-      <a ui-sref="editar-form({id:item.id})">editar</a>
+      <a ui-sref="editar-form({id:item._id})">editar</a>
       </td>
       <td>
-      <a ng-click="basic.deleteBasic(item.id)">delete</a>
+      <a ng-click="basic.deleteSingleVideo(item._id)">delete</a>
       </td>
     </tr>
     <tr>
